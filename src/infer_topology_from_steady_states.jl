@@ -7,7 +7,7 @@ using JuMP, Gurobi
 function find_topology(k, fs, gs)
 
     ### find network topology given degree sequence, steady states, and network dynamics
-    # ks: list of degree sequence; fs, gs: function values for self dynamics and interaction between adjacent nodes at steady states
+    # ks: list of degree sequence; fs, gs: lists of function values for self dynamics and interaction between adjacent nodes at steady states
     ###
 
     # initialize model
