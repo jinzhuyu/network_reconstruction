@@ -32,13 +32,15 @@ function find_topology(k, fs, gs)
 
     @objective(mp, Min, sum(aux_var[i] for i in 1:n_node) );
 
-    optimize!(mp)
+    t0 = time();
+    optimize!(mp);
+    t1 = time();
 
-    solution_time = 
+    t_sol = t1 - t0
 
-    Adj = 
+    Adj = mp[:Adj];
 
-    return Adj, solution_time;
+    return Adj, t_sol;
 end
 
 # test
