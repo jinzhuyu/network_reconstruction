@@ -28,7 +28,7 @@ def interactions(dyn,xs,ks=None):
     xs:         steady states
     ks:         degrees
 
-    Returns:
+    Returns:f
     --------
     self and mutual interaction terms
     '''
@@ -54,15 +54,38 @@ def interactions(dyn,xs,ks=None):
         gs[i, i] = 0
     return fs, gs
 
-dyn='ecology'
-real = False
 
-net = 'BA-n{0}-m{1}-{2}'.format(100,4,99)
+def main():
 
-G, xs_real, ks, A_real, A_hh, fs, gs = load_synthetic_data(dyn, net)
+    import os
+    os.chdir('C:/code/network_reconstruction/data')
+    
+    # os.chdir('/mnt/c/code/network_reconstruction/data')
+    
+    
+    dyn='ecology'
+    real = False
+    
+    net = 'BA-n{0}-m{1}-{2}'.format(100,4,99)
+    
+    G, xs_real, ks, A_real, A_hh, fs, gs = load_synthetic_data(dyn, net)
+    
+    # save data
+    import numpy as np
+    
+    # np.savetxt('ks.txt', ks, delimiter = ',')
+    # np.savetxt('fs.txt', ks, delimiter = ',')
+    # np.savetxt('gs.txt', ks, delimiter = ',')
+    
+    np.save('gs', gs)
+    np.save('ks', ks)
+    np.save('fs', fs)
+ 
+    
+#####  
+if __name__ == "__main__":  
+    main()
+        
 
-
-# import os
-# os.chdir('C:/code/network_reconstruction/data')
 
 
